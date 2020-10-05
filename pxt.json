@@ -1,5 +1,5 @@
 {
-    "name": "poo",
+    "name": "lunar-lander",
     "description": "",
     "dependencies": {
         "device": "*",
