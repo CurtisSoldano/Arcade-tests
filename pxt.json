@@ -1,0 +1,29 @@
+{
+    "name": "poo",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "light": "*",
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.0.6",
+        "pxt-circuit-playground-character-icons": "github:adafruit/circuit-playground-character-icons#v0.0.8",
+        "palette": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.2.6",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
+}
