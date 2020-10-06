@@ -1,5 +1,5 @@
 controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
-    mySprite.vy = -1 * thrust
+    mySprite.ay = gravity - thrust
     mySprite.setImage(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -83,7 +83,7 @@ controller.left.onEvent(ControllerButtonEvent.Released, function () {
         `)
 })
 controller.up.onEvent(ControllerButtonEvent.Released, function () {
-    mySprite.vy = 0
+    mySprite.ay = gravity
     mySprite.setImage(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -104,7 +104,7 @@ controller.up.onEvent(ControllerButtonEvent.Released, function () {
         `)
 })
 controller.left.onEvent(ControllerButtonEvent.Repeated, function () {
-    mySprite.ax = -1 * thrust
+    mySprite.ax = gravity - thrust
     mySprite.setImage(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -126,9 +126,9 @@ controller.left.onEvent(ControllerButtonEvent.Repeated, function () {
 })
 let mySprite: Sprite = null
 let thrust = 0
-let gravity = 1
-thrust = 1.5
-let idle = 1
+let gravity = 0
+gravity = 3
+thrust = 7
 mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -149,3 +149,9 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 mySprite.ay = gravity
 mySprite.setPosition(10, 7)
+info.setLife(10000)
+game.onUpdate(function () {
+    if (controller.left.isPressed() || (controller.right.isPressed() || controller.up.isPressed())) {
+        info.changeLifeBy(-1)
+    }
+})
